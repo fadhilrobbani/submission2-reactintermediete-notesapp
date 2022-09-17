@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
@@ -12,21 +12,40 @@ import NewNotePage from './pages/NewNotePage';
 import ArchiveNotesPage from './pages/ArchiveNotesPage';
 import { getUserLogged, putAccessToken } from './utils/network-data';
 import { useEffect, useState } from 'react';
+import Skeleton from './components/Skeleton';
 
 function App() {
+  const navigate = useNavigate();
   const [authedUser, setAuthedUser] = useState(null);
+  const [initializing, setInitializing] = useState(true);
   const onLoginSuccess = async ({ accessToken }) => {
     putAccessToken(accessToken);
     const { data } = await getUserLogged();
     setAuthedUser(data);
   };
+
+  const onLogoutHandler = () => {
+    setAuthedUser(null);
+    putAccessToken('');
+    navigate('/login');
+    setInitializing(false);
+  };
   useEffect(() => {
     const isLogged = async () => {
-      const { data } = await getUserLogged();
-      setAuthedUser(data);
+      try {
+        const { data } = await getUserLogged();
+        setAuthedUser(data);
+        setInitializing(false);
+      } catch (error) {
+        console.warn('User not found');
+      }
     };
     isLogged();
   }, []);
+
+  if (initializing) {
+    return null;
+  }
 
   if (authedUser === null) {
     return (
@@ -55,7 +74,7 @@ function App() {
       <ThemeProvider>
         <LocaleProvider>
           <header>
-            <Navbar />
+            <Navbar onLogoutHandler={onLogoutHandler} />
           </header>
           <main>
             <Routes>

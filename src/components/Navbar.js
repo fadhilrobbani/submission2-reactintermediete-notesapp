@@ -6,8 +6,9 @@ import ThemeToggle from './ThemeToggle';
 import LocaleToggle from './LocaleToggle';
 import useTheme from '../hooks/useTheme';
 import useLocale from '../hooks/useLocale';
+import LogoutButton from './LogoutButton';
 
-function Navbar() {
+function Navbar({ onLogoutHandler, authedUser }) {
   const [theme] = useTheme();
   const [locale] = useLocale();
   const navigate = useNavigate();
@@ -39,6 +40,7 @@ function Navbar() {
         )}
         <ThemeToggle />
         <LocaleToggle />
+        <LogoutButton onLogoutHandler={onLogoutHandler} />
       </div>
     </header>
   );
