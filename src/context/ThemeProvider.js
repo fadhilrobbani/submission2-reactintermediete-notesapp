@@ -4,10 +4,12 @@ import PropTypes from 'prop-types';
 
 const ThemeContext = createContext();
 function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(
+    localStorage.getItem('data-theme') || 'light'
+  );
   const setLightMode = () => setTheme('light');
   const setDarkMode = () => setTheme('dark');
- 
+
   const themeContextValue = useMemo(() => {
     return [theme, setLightMode, setDarkMode];
   }, [theme]);

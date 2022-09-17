@@ -83,19 +83,19 @@ function LoginPage() {
           <div className='flex flex-col gap-2 justify-center'>
             <p className='text-sm '>
               {locale === 'en' ? (
-                <p>
+                <span>
                   Don't have account?{' '}
                   <span className='underline'>
                     <Link to='/register'>Register here</Link>
                   </span>{' '}
-                </p>
+                </span>
               ) : (
-                <p>
+                <span>
                   Tidak punya akun?{' '}
                   <span className='underline'>
                     <Link to='/register'>Daftar di sini</Link>
                   </span>
-                </p>
+                </span>
               )}
             </p>
             <button className=' text-slate-100 bg-teal-700 px-3 py-2 rounded-md hover:bg-teal-800 '>

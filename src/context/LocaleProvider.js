@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const LocaleContext = createContext();
 function LocaleProvider({ children }) {
-  const [locale, setLocale] = useState('en');
+  const [locale, setLocale] = useState(localStorage.getItem('lang') || 'en');
   const setEn = () => setLocale('en');
   const setId = () => setLocale('id');
 
@@ -24,6 +24,6 @@ function LocaleProvider({ children }) {
   );
 }
 LocaleProvider.propTypes = {
-  children:PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
 };
 export { LocaleContext, LocaleProvider };
