@@ -14,9 +14,9 @@ function Navbar() {
     <header
       className={
         (theme === 'dark'
-          ? ' bg-slate-800 text-slate-200'
+          ? ' bg-slate-700 text-slate-200'
           : ' text-slate-900 bg-slate-100') +
-        ' z-[100] sticky top-0 flex justify-between items-center w-full py-3 px-6 bg-slate-100 opacity-90 text-slate-900'
+        ' z-[100] sticky top-0 flex justify-between items-center w-full py-3 px-6 bg-slate-100 text-slate-900'
       }
     >
       <h1
