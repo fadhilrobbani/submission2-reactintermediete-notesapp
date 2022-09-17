@@ -48,4 +48,9 @@ function Navbar({ onLogoutHandler, name }) {
   );
 }
 
+Navbar.propTypes = {
+  onLogoutHandler: PropTypes.func,
+  name: PropTypes.string,
+};
+
 export default Navbar;

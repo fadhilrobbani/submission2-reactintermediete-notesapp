@@ -15,11 +15,11 @@ function LogoutButton({ onLogoutHandler, name }) {
           (theme === 'light'
             ? 'bg-slate-100 text-slate-900'
             : 'bg-slate-700 text-slate-200') +
-          ' menu dropdown-content shadow-md rounded-lg  w-52 mt-5'
+          ' menu dropdown-content shadow-md rounded-lg  w-52 mt-5 '
         }
       >
         <li className='cursor-pointer px-3 py-1 font-bold text-sm text-center text-slate-200 bg-teal-700 '>
-          {name}
+          {name || 'null'}
         </li>
         <li
           className='cursor-pointer  p-3 text-center hover:bg-teal-600 hover:text-slate-200'
