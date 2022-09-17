@@ -3,7 +3,7 @@ import { FaUserCircle } from 'react-icons/fa';
 import useLocale from '../hooks/useLocale';
 import useTheme from '../hooks/useTheme';
 
-function LogoutButton({ onLogoutHandler, authedUser }) {
+function LogoutButton({ onLogoutHandler, name }) {
   const [theme] = useTheme();
   const [locale] = useLocale();
   return (
@@ -19,7 +19,7 @@ function LogoutButton({ onLogoutHandler, authedUser }) {
         }
       >
         <li className='cursor-pointer px-3 py-1 font-bold text-sm text-center text-slate-200 bg-teal-700 '>
-          {''}
+          {name}
         </li>
         <li
           className='cursor-pointer  p-3 text-center hover:bg-teal-600 hover:text-slate-200'

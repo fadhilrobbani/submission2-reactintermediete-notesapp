@@ -74,7 +74,7 @@ function App() {
       <ThemeProvider>
         <LocaleProvider>
           <header>
-            <Navbar onLogoutHandler={onLogoutHandler} />
+            <Navbar onLogoutHandler={onLogoutHandler} name={authedUser.name} />
           </header>
           <main>
             <Routes>
