@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import ThemeToggle from './ThemeToggle';
 import LocaleToggle from './LocaleToggle';
@@ -10,6 +10,7 @@ import useLocale from '../hooks/useLocale';
 function Navbar() {
   const [theme] = useTheme();
   const [locale] = useLocale();
+  const navigate = useNavigate();
   return (
     <header
       className={
@@ -20,15 +21,18 @@ function Navbar() {
       }
     >
       <h1
+        onClick={() => navigate('/')}
         className={
           (theme === 'dark' ? 'text-slate-200' : '') +
-          ' font-bold  text-2xl uppercase'
+          ' font-bold  text-2xl uppercase cursor-pointer'
         }
       >
-        <Link to='/'>{locale === 'en' ? 'MyNotes' : 'Catatanku'}</Link>
+        {locale === 'en' ? 'MyNotes' : 'Catatanku'}
       </h1>
       <div className='flex gap-6 items-center justify-end w-full'>
-        {window.location.pathname.includes('/notes/') ? null : (
+        {window.location.pathname.includes('/notes/') ||
+        window.location.pathname.includes('login') ||
+        window.location.pathname.includes('register') ? null : (
           <div className='w-1/2 flex justify-e items-center'>
             <SearchBar />
           </div>

@@ -17,7 +17,8 @@ function SearchBar() {
   const [theme] = useTheme();
 
   useEffect(() => {
-    setSearchParams({ title: keyword });
+    const filteredKeyword = keyword.toLowerCase().replace(/\s+/g, '');
+    setSearchParams({ title: filteredKeyword });
     console.log(keyword);
   }, [keyword]);
 
@@ -27,8 +28,14 @@ function SearchBar() {
         <input
           className={
             show
-              ? (theme === 'light' ? 'text-slate-900 bg-white' : 'text-slate-200 bg-slate-500') + `  shadow-xl px-3 py-3 w-full md:w-1/2  absolute top-16 right-0`
-              : (theme === 'light' ? 'text-slate-900 bg-white' : 'text-slate-200 bg-slate-500') + ` shadow-md px-3 py-2 w-full rounded-md hidden md:block`
+              ? (theme === 'light'
+                  ? 'text-slate-900 bg-white'
+                  : 'text-slate-200 bg-slate-500') +
+                `  shadow-xl px-3 py-3 w-full md:w-1/2  absolute top-16 right-0`
+              : (theme === 'light'
+                  ? 'text-slate-900 bg-white'
+                  : 'text-slate-200 bg-slate-500') +
+                ` shadow-md px-3 py-2 w-full rounded-md hidden md:block`
           }
           type='text'
           value={keyword}
