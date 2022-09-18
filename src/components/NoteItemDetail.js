@@ -35,7 +35,6 @@ function NoteItemDetail() {
   };
   const onClickDeleteHandler = async () => {
     await deleteNote(id);
-    setNote({});
     if (note.archived) {
       navigate('/archives');
     } else {

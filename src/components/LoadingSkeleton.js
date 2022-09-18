@@ -16,10 +16,10 @@ function LoadingSkeleton() {
       <div
         className={
           (theme === 'light' ? 'text-slate-900' : 'text-slate-200') +
-          ' font-bold text-2xl animate-pulse flex flex-col justify-center items-center'
+          ' font-bold text-2xl '
         }
       >
-        <CgSpinner className='animate-spin' size={60} />
+        <CgSpinner className='animate-spin mx-auto' size={60} />
         {locale === 'en' ? 'Loading...' : 'Memuat...'}
       </div>
     </div>
