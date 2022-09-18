@@ -10,6 +10,7 @@ function HomePage() {
     const getNotes = async () => {
       const notes = await getActiveNotes();
       setActiveNotes(notes.data);
+      console.log('render homepage');
     };
     getNotes();
   }, []);

@@ -15,19 +15,19 @@ function NotesList({ notes }) {
       .includes(searchParam[0].get('title') || '')
   );
 
-  useEffect(() => {
-    const isLoaded = async () => {
-      const getNotes = await notes;
-      setInitializing(false);
-      console.log('useeffect');
-    };
-    isLoaded();
-  }, []);
+  // useEffect(() => {
+  //   const isLoaded = async () => {
+  //     await notes;
+  //     setInitializing(false);
+  //     console.log('useeffect');
+  //   };
+  //   isLoaded();
+  // }, []);
 
-  if (initializing) {
-    console.log('render');
-    return null;
-  }
+  // if (initializing) {
+  //   console.log('render');
+  //   return null;
+  // }
   return (
     <div className='relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 m-6'>
       {filteredNotes.length > 0 ? (

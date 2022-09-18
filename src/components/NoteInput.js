@@ -3,12 +3,21 @@ import PropTypes from 'prop-types';
 import useInput from '../hooks/useInput';
 import useTheme from '../hooks/useTheme';
 import useLocale from '../hooks/useLocale';
-
+import ActionButtons from './ActionButtons';
+import { addNote } from '../utils/network-data';
+import { useNavigate } from 'react-router-dom';
 function NoteInput() {
+  const navigate = useNavigate();
   const [theme] = useTheme();
   const [locale] = useLocale();
   const [title, handleTitleChange] = useInput('');
   const [body, handleBodyChange] = useInput('');
+
+  const onClickSubmitHandler = async () => {
+    const response = await addNote({ title, body });
+    if (response.error) return;
+    navigate('/');
+  };
   return (
     <div
       className={
@@ -35,6 +44,10 @@ function NoteInput() {
           }
         />
       </div>
+      <ActionButtons
+        onClickSubmitHandler={onClickSubmitHandler}
+        onCancelHandler={() => navigate('/')}
+      />
     </div>
   );
 }
