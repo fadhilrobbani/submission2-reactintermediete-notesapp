@@ -13,6 +13,7 @@ import ArchiveNotesPage from './pages/ArchiveNotesPage';
 import { getUserLogged, putAccessToken } from './utils/network-data';
 import { useEffect, useState } from 'react';
 import AddButton from './components/AddButton';
+import LoadingSkeleton from './components/LoadingSkeleton';
 
 function App() {
   const navigate = useNavigate();
@@ -44,7 +45,15 @@ function App() {
   }, []);
 
   if (initializing) {
-    return null;
+    return (
+      <>
+        <ThemeProvider>
+          <LocaleProvider>
+            <LoadingSkeleton />
+          </LocaleProvider>
+        </ThemeProvider>
+      </>
+    );
   }
 
   if (authedUser === null) {

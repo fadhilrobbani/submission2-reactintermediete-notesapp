@@ -5,7 +5,6 @@ import { useSearchParams } from 'react-router-dom';
 import EmptyMessage from './EmptyMessage';
 
 function NotesList({ notes }) {
-  const [initializing, setInitializing] = useState(true);
   const searchParam = useSearchParams();
 
   const filteredNotes = notes.filter((note) =>
@@ -15,21 +14,16 @@ function NotesList({ notes }) {
       .includes(searchParam[0].get('title') || '')
   );
 
-  // useEffect(() => {
-  //   const isLoaded = async () => {
-  //     await notes;
-  //     setInitializing(false);
-  //     console.log('useeffect');
-  //   };
-  //   isLoaded();
-  // }, []);
+  useEffect(() => {
+    const isLoaded = async () => {
+      await notes;
+      console.log('useeffect');
+    };
+    isLoaded();
+  }, [notes]);
 
-  // if (initializing) {
-  //   console.log('render');
-  //   return null;
-  // }
   return (
-    <div className='relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 m-6'>
+    <div className='relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 m-6'>
       {filteredNotes.length > 0 ? (
         filteredNotes.map((note) => (
           <NoteItem
@@ -43,7 +37,6 @@ function NotesList({ notes }) {
       ) : (
         <EmptyMessage />
       )}
-      {}
     </div>
   );
 }
