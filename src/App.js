@@ -49,6 +49,7 @@ function App() {
       <>
         <ThemeProvider>
           <LocaleProvider>
+            <Navbar />
             <LoadingSkeleton />
           </LocaleProvider>
         </ThemeProvider>

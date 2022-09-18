@@ -10,12 +10,12 @@ function LoadingSkeleton() {
     <div
       className={
         (theme === 'light' ? 'bg-slate-100' : 'bg-slate-700') +
-        ' h-screen mt-[-74px] pt-[74px] w-full flex justify-center items-center'
+        ' h-screen  mt-[-74px] pt-[74px] w-full flex justify-center items-center'
       }
     >
       <div
         className={
-          (theme === 'light' ? 'text-slate-900' : 'text-slate-200') +
+          (theme === 'light' ? 'text-slate-600' : 'text-slate-200') +
           ' font-bold text-2xl '
         }
       >
