@@ -9,3 +9,7 @@
 html {
   @apply scroll-smooth;
 }
+
+/* .action-buttons {
+  @apply text-[25px] tiny:text-[35px] sm:text-[48px];
+} */

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import NotesList from '../components/NotesList';
 import { getActiveNotes } from '../utils/network-data';
 import useTheme from '../hooks/useTheme';
@@ -19,7 +18,7 @@ function HomePage() {
     <div
       className={
         (theme === 'light' ? 'bg-slate-100' : 'bg-slate-700') +
-        ' h-screen mt-[-25px] pt-10 '
+        ' h-screen w-full mt-[-74px] pt-[74px]  '
       }
     >
       <NotesList notes={activeNotes} />

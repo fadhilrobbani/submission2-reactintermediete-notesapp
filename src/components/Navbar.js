@@ -7,6 +7,7 @@ import LocaleToggle from './LocaleToggle';
 import useTheme from '../hooks/useTheme';
 import useLocale from '../hooks/useLocale';
 import LogoutButton from './LogoutButton';
+import { MdOutlineArchive } from 'react-icons/md';
 
 function Navbar({ onLogoutHandler, name }) {
   const [theme] = useTheme();
@@ -18,7 +19,7 @@ function Navbar({ onLogoutHandler, name }) {
         (theme === 'dark'
           ? ' bg-slate-700 text-slate-200'
           : ' text-slate-900 bg-slate-100') +
-        ' z-[100] sticky top-0  flex justify-between items-center w-full py-3 px-6'
+        ' z-[100] sticky top-0 flex justify-between items-center w-full py-3 px-6'
       }
     >
       <h1
@@ -40,6 +41,12 @@ function Navbar({ onLogoutHandler, name }) {
         )}
         <ThemeToggle />
         <LocaleToggle />
+        <div onClick={() => navigate('/archives')} className='cursor-pointer'>
+          <MdOutlineArchive
+            className='hover:scale-105 transition duration-150'
+            size={34}
+          />
+        </div>
         {name ? (
           <LogoutButton onLogoutHandler={onLogoutHandler} name={name} />
         ) : null}

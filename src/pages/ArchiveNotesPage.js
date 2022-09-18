@@ -1,12 +1,30 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { useState, useEffect } from 'react';
+import NotesList from '../components/NotesList';
+import { getArchivedNotes } from '../utils/network-data';
+import useTheme from '../hooks/useTheme';
+function ArchiveNotesPage() {
+  const [theme] = useTheme();
+  const [archivedNotes, setArchivedNotes] = useState([]);
+  useEffect(() => {
+    const getNotes = async () => {
+      const notes = await getArchivedNotes();
+      setArchivedNotes(notes.data);
+    };
+    getNotes();
+  }, []);
 
-function ArchiveNotesPage(props) {
   return (
-    <div>ArchiveNotesPage</div>
-  )
+    <div
+      className={
+        (theme === 'light' ? 'bg-slate-100' : 'bg-slate-700') +
+        ' h-screen mt-[-25px] pt-10 '
+      }
+    >
+      <NotesList notes={archivedNotes} />
+    </div>
+  );
 }
 
-ArchiveNotesPage.propTypes = {}
+ArchiveNotesPage.propTypes = {};
 
-export default ArchiveNotesPage
+export default ArchiveNotesPage;

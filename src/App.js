@@ -12,7 +12,7 @@ import NewNotePage from './pages/NewNotePage';
 import ArchiveNotesPage from './pages/ArchiveNotesPage';
 import { getUserLogged, putAccessToken } from './utils/network-data';
 import { useEffect, useState } from 'react';
-import Skeleton from './components/Skeleton';
+import AddButton from './components/AddButton';
 
 function App() {
   const navigate = useNavigate();
@@ -77,6 +77,7 @@ function App() {
             <Navbar onLogoutHandler={onLogoutHandler} name={authedUser.name} />
           </header>
           <main>
+            {window.location.pathname === '/' ? <AddButton /> : null}
             <Routes>
               <Route path='/' element={<HomePage />} />
               <Route path='/notes/'>

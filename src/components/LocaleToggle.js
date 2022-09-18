@@ -12,22 +12,26 @@ function LocaleToggle() {
 
   return (
     <div onClick={onLocaleChangeHandler}>
-      <label className='swap swap-rotate'>
-        <img
-          src={idLogo}
-          alt={locale}
-          className={
-            locale === 'en' ? 'swap-on  h-11 w-11' : 'swap-off h-11 w-11'
-          }
-        />
-        <img
-          src={usaLogo}
-          alt={locale}
-          className={
-            locale === 'id' ? 'swap-on   h-11 w-11' : 'swap-off  h-11 w-11'
-          }
-        />
-      </label>
+      <div className='swap swap-rotate'>
+        <div
+          className={(locale === 'en' ? 'swap-on' : 'swap-off') + ' h-11 w-11'}
+        >
+          <img
+            src={idLogo}
+            alt={locale}
+            className='h-full w-full aspect-square'
+          />
+        </div>
+        <div
+          className={(locale === 'id' ? 'swap-on' : 'swap-off') + ' h-11 w-11'}
+        >
+          <img
+            src={usaLogo}
+            alt={locale}
+            className='h-full w-full aspect-square'
+          />
+        </div>
+      </div>
     </div>
   );
 }

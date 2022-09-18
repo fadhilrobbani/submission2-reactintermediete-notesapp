@@ -1,31 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import NoteItem from './NoteItem';
 import { useSearchParams } from 'react-router-dom';
+import EmptyMessage from './EmptyMessage';
 
 function NotesList({ notes }) {
+  const [initializing, setInitializing] = useState(true);
   const searchParam = useSearchParams();
-  function EmptyMessage() {
-    if (window.location.pathname.includes('/archives')) {
-      return (
-        <h1 className=' absolute  text-2xl font-semibold text-slate-300 text-center  flex justify-center rounded-lg h-[400px] items-center w-full p-4'>
-          Tidak Ada Catatan yang Diarsipkan
-        </h1>
-      );
-    } else {
-      return (
-        <h1 className=' absolute  text-2xl font-semibold text-slate-300 text-center  flex justify-center rounded-lg h-[400px] items-center w-full p-4'>
-          Tidak Ada Catatan Aktif
-        </h1>
-      );
-    }
-  }
+
   const filteredNotes = notes.filter((note) =>
     note.title
       .toLowerCase()
       .replace(/\s+/g, '')
-      .includes(searchParam[0].get('title'))
+      .includes(searchParam[0].get('title') || '')
   );
+
+  useEffect(() => {
+    const isLoaded = async () => {
+      const getNotes = await notes;
+      setInitializing(false);
+      console.log('useeffect');
+    };
+    isLoaded();
+  }, []);
+
+  if (initializing) {
+    console.log('render');
+    return null;
+  }
   return (
     <div className='relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 m-6'>
       {filteredNotes.length > 0 ? (
