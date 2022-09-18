@@ -13,18 +13,18 @@ function ActionButtons({
   onClickSubmitHandler,
 }) {
   return (
-    <div className='bg-slate-400/75 z-[100] fixed bottom-5 flex flex-row-reverse gap-6 p-3 rounded-2xl'>
+    <div className='z-[100] fixed bottom-5 flex flex-row-reverse gap-6 p-3 rounded-2xl'>
       {window.location.pathname.includes('/notes/new') ? (
         <>
           <div
-            className='cursor-pointer  rounded-full p-2 bottom-8 right-10  hover:scale-105 transition duration-150 bg-green-200'
+            className='cursor-pointer rounded-full p-2 bottom-8 right-10  hover:scale-105 transition duration-150 text-slate-100 bg-teal-600'
             onClick={onClickSubmitHandler}
           >
-            <BiCheck className='action-buttons' />
+            <BiCheck className='action-buttons ' />
           </div>
           <div
             onClick={onCancelHandler}
-            className='cursor-pointer rounded-full p-2 bottom-8 right-36  hover:scale-105 transition duration-150 bg-amber-300'
+            className='cursor-pointer rounded-full p-2 bottom-8 right-36  hover:scale-105 transition duration-150 text-slate-100 bg-amber-600'
           >
             <IoMdArrowBack className='action-buttons' />
           </div>
@@ -41,20 +41,20 @@ function ActionButtons({
           ) : (
             <div
               onClick={onClickArchiveHandler}
-              className='cursor-pointer rounded-full p-2  hover:scale-105 transition duration-150 bg-purple-300'
+              className='cursor-pointer rounded-full p-2  hover:scale-105 transition duration-150 text-slate-100 bg-teal-600'
             >
               <MdOutlineArchive className='action-buttons' />
             </div>
           )}
           <div
             onClick={onClickDeleteHandler}
-            className='cursor-pointer rounded-full p-2  hover:scale-105 transition duration-150 bg-pink-400'
+            className='cursor-pointer rounded-full p-2  hover:scale-105 transition duration-150 text-slate-100 bg-pink-600'
           >
             <BiTrash className='action-buttons' />
           </div>
           <div
             onClick={onCancelHandler}
-            className='cursor-pointer rounded-full p-2  hover:scale-105 transition duration-150 bg-amber-400'
+            className='cursor-pointer rounded-full p-2  hover:scale-105 transition duration-150 text-slate-100 bg-amber-600'
           >
             <IoMdArrowBack className='action-buttons' />
           </div>

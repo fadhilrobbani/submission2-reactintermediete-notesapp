@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FaUserCircle } from 'react-icons/fa';
 import useLocale from '../hooks/useLocale';
 import useTheme from '../hooks/useTheme';
@@ -31,5 +32,10 @@ function LogoutButton({ onLogoutHandler, name }) {
     </div>
   );
 }
+
+LogoutButton.propTypes = {
+  onLogoutHandler: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+};
 
 export default LogoutButton;

@@ -1,15 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import NoteInput from '../components/NoteInput';
+import useTheme from '../hooks/useTheme';
 
-function NewNotePage(props) {
+function NewNotePage() {
+  const [theme] = useTheme();
   return (
-    <div>
+    <div
+      className={
+        (theme === 'light' ? 'bg-slate-100' : 'bg-slate-700') +
+        ' w-full flex py-5 justify-center items-center h-screen mt-[-74px]'
+      }
+    >
       <NoteInput />
     </div>
   );
 }
-
-NewNotePage.propTypes = {};
 
 export default NewNotePage;

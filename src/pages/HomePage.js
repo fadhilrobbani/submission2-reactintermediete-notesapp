@@ -13,13 +13,11 @@ function HomePage() {
       const notes = await getActiveNotes();
       setActiveNotes(notes.data);
       setInitializing(false);
-      console.log('render homepage');
     };
     getNotes();
   }, []);
 
   if (initializing || !activeNotes) {
-    console.log('render');
     return <LoadingSkeleton />;
   }
 
@@ -34,7 +32,5 @@ function HomePage() {
     </div>
   );
 }
-
-HomePage.propTypes = {};
 
 export default HomePage;

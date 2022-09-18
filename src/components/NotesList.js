@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import NoteItem from './NoteItem';
 import { useSearchParams } from 'react-router-dom';
@@ -17,7 +17,6 @@ function NotesList({ notes }) {
   useEffect(() => {
     const isLoaded = async () => {
       await notes;
-      console.log('useeffect');
     };
     isLoaded();
   }, [notes]);

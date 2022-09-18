@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import useTheme from '../hooks/useTheme';
 import RegisterInput from '../components/RegisterInput';
 
@@ -19,7 +18,5 @@ function RegisterPage() {
     </div>
   );
 }
-
-RegisterPage.propTypes = {};
 
 export default RegisterPage;

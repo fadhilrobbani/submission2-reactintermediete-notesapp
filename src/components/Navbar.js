@@ -8,15 +8,11 @@ import useTheme from '../hooks/useTheme';
 import useLocale from '../hooks/useLocale';
 import LogoutButton from './LogoutButton';
 import { MdOutlineArchive } from 'react-icons/md';
-import { useEffect } from 'react';
-
 function Navbar({ onLogoutHandler, name }) {
   const [theme] = useTheme();
   const [locale] = useLocale();
   const navigate = useNavigate();
-  useEffect(() => {
-    console.log('navbar render');
-  });
+
   return (
     <header
       className={

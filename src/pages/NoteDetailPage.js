@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import NoteItemDetail from '../components/NoteItemDetail';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getNote } from '../utils/network-data';
@@ -27,7 +26,6 @@ function NoteDetailPage() {
   }, []);
 
   if (initializing || !note) {
-    console.log('render');
     return <LoadingSkeleton />;
   }
 
@@ -42,7 +40,5 @@ function NoteDetailPage() {
     </div>
   );
 }
-
-NoteDetailPage.propTypes = {};
 
 export default NoteDetailPage;

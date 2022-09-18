@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import useTheme from '../hooks/useTheme';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import ActionButtons from './ActionButtons';
 import { archiveNote, deleteNote, unarchiveNote } from '../utils/network-data';
 
@@ -38,10 +38,24 @@ function NoteItemDetail({ note, id }) {
   return (
     <>
       <div className='w-3/4 flex justify-center flex-col '>
-        <div className='bg-yellow-400 h-28 text-3xl font-bold p-5 placeholder:text-slate-500 placeholder:text-3xl focus:outline-none '>
+        <div
+          className={
+            (theme === 'light'
+              ? 'bg-slate-300 text-slate-900'
+              : 'bg-slate-600 text-slate-200') +
+            ' h-28 text-3xl font-bold p-5 rounded-t-lg  placeholder:text-slate-500 placeholder:text-3xl focus:outline-none '
+          }
+        >
           {note.title}
         </div>
-        <div className='overflow-auto text-xl h-80  bg-yellow-200  p-5  placeholder:text-slate-500 placeholder: focus:outline-none'>
+        <div
+          className={
+            (theme === 'light'
+              ? 'bg-white text-slate-900'
+              : 'bg-slate-500 text-slate-200') +
+            ' overflow-auto text-xl h-80 p-5 rounded-b-lg shadow-lg placeholder:text-slate-500 placeholder: focus:outline-none'
+          }
+        >
           {note.body}
         </div>
       </div>
@@ -56,6 +70,9 @@ function NoteItemDetail({ note, id }) {
   );
 }
 
-NoteItemDetail.propTypes = {};
+NoteItemDetail.propTypes = {
+  note: PropTypes.object.isRequired,
+  id: PropTypes.string.isRequired,
+};
 
 export default NoteItemDetail;

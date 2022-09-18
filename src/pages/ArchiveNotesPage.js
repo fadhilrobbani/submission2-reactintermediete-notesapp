@@ -18,7 +18,6 @@ function ArchiveNotesPage() {
   }, []);
 
   if (initializing || !archivedNotes) {
-    console.log('render');
     return <LoadingSkeleton />;
   }
 
@@ -33,7 +32,5 @@ function ArchiveNotesPage() {
     </div>
   );
 }
-
-ArchiveNotesPage.propTypes = {};
 
 export default ArchiveNotesPage;

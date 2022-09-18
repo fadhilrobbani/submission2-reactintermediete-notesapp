@@ -3,23 +3,40 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { showFormattedDate } from '../utils/index';
 import parse from 'html-react-parser';
+import useTheme from '../hooks/useTheme';
 
 function NoteItem({ id, title, body, createdAt }) {
+  const [theme] = useTheme();
   const navigate = useNavigate();
   return (
     <div
       onClick={() => navigate(`/notes/${id}`)}
-      className='flex group flex-col gap-2  bg-yellow-200 shadow-lg cursor-pointer  hover:scale-105  transition duration-200  h-[300px] '
+      className={
+        (theme === 'light'
+          ? 'bg-white text-slate-900'
+          : 'bg-slate-500 text-slate-200') +
+        ' flex group flex-col gap-2 rounded-lg shadow-lg cursor-pointer  hover:scale-105  transition duration-200  h-[300px] '
+      }
     >
-      <div className=' bg-yellow-400 w-full p-3'>
+      <div
+        className={
+          (theme === 'light' ? 'bg-slate-300' : 'bg-slate-600') +
+          ' w-full rounded-t-lg p-3 '
+        }
+      >
         <h1 className='text-xl font-bold overflow-hidden whitespace-nowrap text-ellipsis'>
           {title}
         </h1>
-        <p className='font-semibold text-slate-800'>
+        <p
+          className={
+            (theme === 'light' ? ' text-slate-900' : 'text-slate-200') +
+            ' font-semibold'
+          }
+        >
           {showFormattedDate(createdAt)}
         </p>
       </div>
-      <div className='overflow-hidden p-3 text-ellipsis h-full bg-transparent'>
+      <div className='p-3 overflow-hidden h-full '>
         <p className=''>{parse(body)}</p>
       </div>
     </div>

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { ImCross } from 'react-icons/im';
@@ -19,7 +18,6 @@ function SearchBar() {
   useEffect(() => {
     const filteredKeyword = keyword.toLowerCase().replace(/\s+/g, '');
     setSearchParams({ title: filteredKeyword });
-    console.log(keyword);
   }, [keyword]);
 
   return (

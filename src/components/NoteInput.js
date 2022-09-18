@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import useInput from '../hooks/useInput';
 import useTheme from '../hooks/useTheme';
 import useLocale from '../hooks/useLocale';
@@ -19,22 +18,27 @@ function NoteInput() {
     navigate('/');
   };
   return (
-    <div
-      className={
-        (theme === 'light' ? 'bg-slate-100' : 'bg-slate-700') +
-        ' w-full flex py-5 justify-center items-center h-screen mt-[-74px]'
-      }
-    >
+    <>
       <div className='w-3/4 flex justify-center flex-col '>
         <input
-          className='bg-yellow-400 h-28 text-3xl font-bold p-5 placeholder:text-slate-500 placeholder:text-3xl focus:outline-none '
+          className={
+            (theme === 'light'
+              ? 'bg-slate-300 text-slate-900 placeholder:text-slate-500'
+              : 'bg-slate-600 text-slate-200 placeholder:text-slate-300') +
+            '  h-28 text-3xl font-bold p-5  placeholder:text-3xl rounded-t-lg focus:outline-none '
+          }
           type='text'
           onChange={handleTitleChange}
           value={title}
           placeholder={locale === 'en' ? 'New Note' : 'Catatan Baru'}
         />
         <textarea
-          className='overflow-auto text-xl h-80  bg-yellow-200  p-5  placeholder:text-slate-500 placeholder: focus:outline-none'
+          className={
+            (theme === 'light'
+              ? 'bg-white-text-slate-900'
+              : 'bg-slate-500 text-slate-200 placeholder:text-slate-300') +
+            ' overflow-auto text-xl h-80 p-5 rounded-b-lg  placeholder: focus:outline-none'
+          }
           value={body}
           onChange={handleBodyChange}
           placeholder={
@@ -48,10 +52,8 @@ function NoteInput() {
         onClickSubmitHandler={onClickSubmitHandler}
         onCancelHandler={() => navigate('/')}
       />
-    </div>
+    </>
   );
 }
-
-NoteInput.propTypes = {};
 
 export default NoteInput;
