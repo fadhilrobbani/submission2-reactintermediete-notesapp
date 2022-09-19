@@ -13,7 +13,6 @@ import ArchiveNotesPage from './pages/ArchiveNotesPage';
 import { getUserLogged, putAccessToken } from './utils/network-data';
 import { useEffect, useState } from 'react';
 import LoadingSkeleton from './components/LoadingSkeleton';
-import FloatingButtons from './components/FloatingButtons';
 import swal from 'sweetalert';
 
 function App() {
@@ -89,7 +88,6 @@ function App() {
             <Navbar onLogoutHandler={onLogoutHandler} name={authedUser.name} />
           </header>
           <main>
-            {window.location.pathname === '/' ? <FloatingButtons /> : null}
             <Routes>
               <Route path='/' element={<HomePage />} />
               <Route path='/notes/'>

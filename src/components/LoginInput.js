@@ -34,11 +34,7 @@ function LoginInput({ onLoginSuccess }) {
         <h1 className='text-center font-bold text-2xl '>
           {locale === 'en' ? 'Login' : 'Masuk'}
         </h1>
-        <p>
-          {locale === 'en'
-            ? 'Login to access your notes'
-            : 'Masuk untuk dapat mengakses catatanmu'}
-        </p>
+        <p>{locale === 'en' ? 'Login to your account' : 'Masuk ke akunmu'}</p>
       </div>
       <div className='w-full bg-slate-200 h-[2px] rounded-md'></div>
       <div className='w-4/5 flex flex-col gap-6 justify-center'>

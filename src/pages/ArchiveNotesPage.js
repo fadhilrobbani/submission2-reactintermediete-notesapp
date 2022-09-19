@@ -3,6 +3,7 @@ import NotesList from '../components/NotesList';
 import { getArchivedNotes } from '../utils/network-data';
 import useTheme from '../hooks/useTheme';
 import LoadingSkeleton from '../components/LoadingSkeleton';
+import FloatingButtons from '../components/FloatingButtons';
 
 function ArchiveNotesPage() {
   const [theme] = useTheme();
@@ -28,6 +29,7 @@ function ArchiveNotesPage() {
         ' h-fit min-h-screen mt-[-74px] pt-[74px] pb-5 '
       }
     >
+      <FloatingButtons />
       <NotesList notes={archivedNotes} />
     </div>
   );

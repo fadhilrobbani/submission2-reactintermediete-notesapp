@@ -3,6 +3,7 @@ import NotesList from '../components/NotesList';
 import { getActiveNotes } from '../utils/network-data';
 import useTheme from '../hooks/useTheme';
 import LoadingSkeleton from '../components/LoadingSkeleton';
+import FloatingButtons from '../components/FloatingButtons';
 
 function HomePage() {
   const [theme] = useTheme();
@@ -28,6 +29,7 @@ function HomePage() {
         '  min-h-screen h-fit w-full pb-5 mt-[-74px] pt-[74px]  '
       }
     >
+      <FloatingButtons />
       <NotesList notes={activeNotes} />
     </div>
   );
