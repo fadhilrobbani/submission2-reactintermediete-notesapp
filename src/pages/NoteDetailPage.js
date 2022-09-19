@@ -23,6 +23,7 @@ function NoteDetailPage() {
       setNote(response.data);
     };
     getSingleNote();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (initializing || !note) {

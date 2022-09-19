@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { ImCross } from 'react-icons/im';
@@ -19,6 +18,7 @@ function SearchBar() {
   useEffect(() => {
     const filteredKeyword = keyword.toLowerCase().replace(/\s+/g, '');
     setSearchParams({ title: filteredKeyword });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [keyword]);
 
   return (
