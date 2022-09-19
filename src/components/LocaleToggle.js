@@ -19,7 +19,7 @@ function LocaleToggle() {
           <img
             src={idLogo}
             alt={locale}
-            className='h-full w-full aspect-square'
+            className='h-full w-full aspect-square mt-[2px]'
           />
         </div>
         <div
@@ -28,7 +28,7 @@ function LocaleToggle() {
           <img
             src={usaLogo}
             alt={locale}
-            className='h-full w-full aspect-square'
+            className='h-full w-full mt-[2px] aspect-square'
           />
         </div>
       </div>

@@ -14,12 +14,16 @@ function ThemeToggle() {
       <label className='swap swap-rotate'>
         <MdOutlineLightMode
           className={
-            theme === 'dark' ? 'swap-on  text-[40px]' : 'swap-off text-[40px]'
+            theme === 'dark'
+              ? 'swap-on  text-[45px] pt-[5px]'
+              : 'swap-off text-[45px] pt-[5px]'
           }
         />
         <MdOutlineDarkMode
           className={
-            theme === 'light' ? 'swap-on  text-[40px] text-slate-200' : 'swap-off text-[40px] text-slate-200'
+            theme === 'light'
+              ? 'swap-on  text-[45px] text-slate-200 pt-[5px]'
+              : 'swap-off pt-[5px] text-[45px] text-slate-200'
           }
         />
       </label>

@@ -22,17 +22,17 @@ function SearchBar() {
 
   return (
     <>
-      <div className='w-full flex justify-end'>
+      <div className='w-fit xs:w-full flex justify-center xs:justify-end'>
         <input
           className={
             show
               ? (theme === 'light'
                   ? 'text-slate-900 bg-white'
-                  : 'text-slate-200 bg-slate-500') +
+                  : 'text-slate-200 bg-slate-500 placeholder:text-slate-300') +
                 `  shadow-xl px-3 py-3 w-full md:w-1/2  absolute top-[73px] right-0`
               : (theme === 'light'
                   ? 'text-slate-900 bg-white'
-                  : 'text-slate-200 bg-slate-500') +
+                  : 'text-slate-200 bg-slate-500 placeholder:text-slate-300') +
                 ` shadow-md px-3 py-2 w-full rounded-md hidden md:block`
           }
           type='text'

@@ -12,8 +12,9 @@ import NewNotePage from './pages/NewNotePage';
 import ArchiveNotesPage from './pages/ArchiveNotesPage';
 import { getUserLogged, putAccessToken } from './utils/network-data';
 import { useEffect, useState } from 'react';
-import AddButton from './components/AddButton';
 import LoadingSkeleton from './components/LoadingSkeleton';
+import FloatingButtons from './components/FloatingButtons';
+import swal from 'sweetalert';
 
 function App() {
   const navigate = useNavigate();
@@ -38,7 +39,8 @@ function App() {
         setAuthedUser(data);
         setInitializing(false);
       } catch (error) {
-        console.warn('User not found');
+        swal('Something is wrong, please login again');
+        navigate('/login');
       }
     };
     isLogged();
@@ -87,7 +89,7 @@ function App() {
             <Navbar onLogoutHandler={onLogoutHandler} name={authedUser.name} />
           </header>
           <main>
-            {window.location.pathname === '/' ? <AddButton /> : null}
+            {window.location.pathname === '/' ? <FloatingButtons /> : null}
             <Routes>
               <Route path='/' element={<HomePage />} />
               <Route path='/notes/'>

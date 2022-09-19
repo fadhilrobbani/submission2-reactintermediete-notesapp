@@ -25,7 +25,7 @@ function ArchiveNotesPage() {
     <div
       className={
         (theme === 'light' ? 'bg-slate-100' : 'bg-slate-700') +
-        ' h-fit min-h-screen mt-[-25px] pt-10 pb-5 '
+        ' h-fit min-h-screen mt-[-74px] pt-[74px] pb-5 '
       }
     >
       <NotesList notes={archivedNotes} />
