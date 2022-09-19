@@ -18,7 +18,7 @@ function Navbar({ onLogoutHandler, name }) {
         (theme === 'dark'
           ? ' bg-slate-700 text-slate-200'
           : ' text-slate-900 bg-slate-100') +
-        ' z-[200] sticky top-0 flex flex-row gap-3 justify-between items-center w-full py-[11.5px] px-6'
+        ' z-[100] sticky flex flex-row gap-3 justify-between items-center w-full py-[11.5px] px-6'
       }
     >
       <h1

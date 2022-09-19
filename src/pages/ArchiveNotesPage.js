@@ -4,9 +4,11 @@ import { getArchivedNotes } from '../utils/network-data';
 import useTheme from '../hooks/useTheme';
 import LoadingSkeleton from '../components/LoadingSkeleton';
 import FloatingButtons from '../components/FloatingButtons';
+import useLocale from '../hooks/useLocale';
 
 function ArchiveNotesPage() {
   const [theme] = useTheme();
+  const [locale] = useLocale();
   const [archivedNotes, setArchivedNotes] = useState([]);
   const [initializing, setInitializing] = useState(true);
   useEffect(() => {
@@ -30,6 +32,9 @@ function ArchiveNotesPage() {
       }
     >
       <FloatingButtons />
+      <p className=' text-xl font-semibold m-6  text-slate-100 text-center w-auto rounded-lg  bg-amber-600 opacity-90 p-4'>
+        {locale === 'en' ? 'Archive Notes' : 'Catatan yang Diarsipkan'}
+      </p>
       <NotesList notes={archivedNotes} />
     </div>
   );

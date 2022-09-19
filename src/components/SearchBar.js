@@ -10,7 +10,7 @@ function SearchBar() {
   const [searchParams, setSearchParams] = useSearchParams();
   const title = searchParams.get('title');
 
-  const [keyword, handleKeywordChange] = useInput(title ? title : '');
+  const [keyword, handleKeywordChange] = useInput(title || '');
   const [show, setShow] = useState(false);
   const [locale] = useLocale();
   const [theme] = useTheme();

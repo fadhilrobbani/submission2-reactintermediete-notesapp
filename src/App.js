@@ -13,7 +13,6 @@ import ArchiveNotesPage from './pages/ArchiveNotesPage';
 import { getUserLogged, putAccessToken } from './utils/network-data';
 import { useEffect, useState } from 'react';
 import LoadingSkeleton from './components/LoadingSkeleton';
-import swal from 'sweetalert';
 
 function App() {
   const navigate = useNavigate();
@@ -33,12 +32,10 @@ function App() {
   };
   useEffect(() => {
     const isLogged = async () => {
-      try {
-        const { data } = await getUserLogged();
-        setAuthedUser(data);
-        setInitializing(false);
-      } catch (error) {
-        swal('Something is wrong, please login again');
+      const { data, error } = await getUserLogged();
+      setAuthedUser(data);
+      setInitializing(false);
+      if (error) {
         navigate('/login');
       }
     };
@@ -63,9 +60,7 @@ function App() {
       <>
         <ThemeProvider>
           <LocaleProvider>
-            <header>
-              <Navbar />
-            </header>
+            <Navbar />
             <main>
               <Routes>
                 <Route

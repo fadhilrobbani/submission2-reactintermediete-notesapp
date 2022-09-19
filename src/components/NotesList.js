@@ -22,7 +22,7 @@ function NotesList({ notes }) {
   }, [notes]);
 
   return (
-    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 m-6'>
+    <div className='relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 m-6'>
       {filteredNotes.length > 0 ? (
         filteredNotes.map((note) => (
           <NoteItem

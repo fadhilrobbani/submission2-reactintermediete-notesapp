@@ -15,7 +15,7 @@ function NoteItem({ id, title, body, createdAt }) {
         (theme === 'light'
           ? 'bg-white text-slate-900'
           : 'bg-slate-500 text-slate-200') +
-        ' flex group flex-col gap-2 rounded-lg shadow-lg cursor-pointer  hover:scale-105  transition duration-200  h-[300px] '
+        ' flex group  flex-col gap-2 rounded-lg shadow-lg cursor-pointer  hover:scale-105  transition duration-200  h-[300px] '
       }
     >
       <div

@@ -30,7 +30,7 @@ function FloatingButtons() {
     <>
       <div
         onClick={() => navigate('/')}
-        className='bg-amber-600 text-slate-200 cursor-pointer shadow-md z-[100] fixed rounded-full p-2 bottom-5 left-5 opacity-90 hover:bg-amber-800'
+        className='bg-amber-600 text-slate-200 cursor-pointer shadow-md z-[100] fixed rounded-full p-2 bottom-5 right-5 opacity-90 hover:bg-amber-800'
       >
         <IoMdArrowBack size={44} />
       </div>

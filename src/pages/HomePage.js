@@ -4,9 +4,11 @@ import { getActiveNotes } from '../utils/network-data';
 import useTheme from '../hooks/useTheme';
 import LoadingSkeleton from '../components/LoadingSkeleton';
 import FloatingButtons from '../components/FloatingButtons';
+import useLocale from '../hooks/useLocale';
 
 function HomePage() {
   const [theme] = useTheme();
+  const [locale] = useLocale();
   const [activeNotes, setActiveNotes] = useState([]);
   const [initializing, setInitializing] = useState(true);
   useEffect(() => {
@@ -30,6 +32,9 @@ function HomePage() {
       }
     >
       <FloatingButtons />
+      <p className=' text-xl font-semibold m-6  text-slate-100 opacity-90 text-center w-auto rounded-lg  bg-teal-500 p-4'>
+        {locale === 'en' ? 'Active Notes' : 'Catatan Aktif'}
+      </p>
       <NotesList notes={activeNotes} />
     </div>
   );
