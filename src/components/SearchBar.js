@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { ImCross } from 'react-icons/im';
